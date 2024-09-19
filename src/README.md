@@ -22,3 +22,10 @@ The user interface for your customer’s application should include the followin
 ### Changes made to `about.html`
 - **Line 32-49**:Added information about the company's website
 - **Line 6-29**:Added basic styling to the about page.
+
+## E.  Add a sample inventory appropriate for your chosen store to the application. You should have five parts and five products in your sample inventory and should not overwrite existing data in the database.
+### Changes made to `BootStrapData`
+- **Line 42, 69, 87**: Added conditional statement to ensure duplicate items arn't added
+- **Line 43-67**:Added outsourced parts (3) to outsourcedPartRepository and set parameters
+- **Line 70-85**:Added inhouse parts (2) to inhousePartRepository and set parameters
+- **Line 88-100**:Added products (5) to productRepository and set parameters

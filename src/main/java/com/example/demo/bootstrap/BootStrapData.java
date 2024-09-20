@@ -46,6 +46,8 @@ public class BootStrapData implements CommandLineRunner {
             part1.setName("RAM");
             part1.setInv(25);
             part1.setPrice(74.99);
+            part1.setMaxInv(100);
+            part1.setMinInv(1);
 
             OutsourcedPart part2 = new OutsourcedPart();
             part2.setCompanyName("New Egg");
@@ -53,6 +55,8 @@ public class BootStrapData implements CommandLineRunner {
             part2.setName("Power Supply");
             part2.setInv(15);
             part2.setPrice(129.99);
+            part2.setMaxInv(100);
+            part2.setMinInv(1);
 
             OutsourcedPart part3 = new OutsourcedPart();
             part3.setCompanyName("New Egg");
@@ -60,6 +64,8 @@ public class BootStrapData implements CommandLineRunner {
             part3.setName("Computer Case");
             part3.setInv(20);
             part3.setPrice(150.00);
+            part3.setMaxInv(100);
+            part3.setMinInv(1);
 
             outsourcedPartRepository.save(part1);
             outsourcedPartRepository.save(part2);
@@ -73,12 +79,16 @@ public class BootStrapData implements CommandLineRunner {
             part4.setId(101);
             part4.setInv(25);
             part4.setPrice(399.99);
+            part4.setMaxInv(100);
+            part4.setMinInv(1);
 
             InhousePart part5 = new InhousePart();
             part5.setName("GPU");
             part5.setId(102);
             part5.setInv(20);
             part5.setPrice(649.99);
+            part5.setMaxInv(100);
+            part5.setMinInv(1);
 
             inhousePartRepository.save(part4);
             inhousePartRepository.save(part5);

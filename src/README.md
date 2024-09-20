@@ -41,3 +41,32 @@ The user interface for your customer’s application should include the followin
 - **Line 72-81** added a buyProduct method to check if the product is available
 ### Changes made to `AddProductController`:
 - **Line 181-190** added buyProduct mapping and success/failure messaging logic
+
+## G.  Modify the parts to track maximum and minimum inventory by doing the following:
+- Add additional fields to the part entity for maximum and minimum inventory.
+- Modify the sample inventory to include the maximum and minimum fields.
+- Add to the InhousePartForm and OutsourcedPartForm forms additional text inputs for the inventory so the user can set the maximum and minimum values.
+- Rename the file the persistent storage is saved to.
+- Modify the code to enforce that the inventory is between or at the minimum and maximum value.
+### Changes made to `Part`:
+- **Line 32-35**: Ensure that the value for min and max inv is positive
+- **Line 45, 49-50**: Added mininv and maxinv to part constructor
+- **Line 53, 58-59**: Added mininv and max inv to other part constructor
+- **Line 62-68**: Added getter and setter methods for mininv and maxinv
+### Changes made to `InhousePartForm.html`:
+- **Line 26**: Added field for modifying the minimum inventory
+- **Line 28**: added field for modifying the maximum inventory
+### Changes made to `OutsourcedPartFrom.html`:
+- **Line 27**: Added field for modifying the minimum inventory
+- **Line 29**: Added field for modifying the maximum inventory
+### Changes made to `BootStrapData.java`:
+- **Line 49-50,58-59,67-68,82-83,90-91**: Modified sample inventory to include the maximum and minimum fields
+### Changes made to `AddInhousePartController.java`:
+- **Line 45-48**: Added Error handling to ensure the min and max inv are within range before saving
+### Changes made to `AddOutsourcedPartController.java`:
+- **Line 46-49**: Added Error handling to ensure the min and max inv are within range before saving
+### Changes made to `application.properties`:
+- **Line 6**: Renamed the file the persistent storage is saved to ensure our new fields are updated
+
+
+

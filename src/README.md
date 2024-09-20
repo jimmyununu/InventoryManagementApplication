@@ -101,5 +101,10 @@ public boolean buyProduct(Long productId) {
 ```
 - We are essentially checking if the product exists and has available inventory, decreasing the inventory if it does, then checking for the associated part and decreasing part inventory if available. If either the part or product is unavailable we do not save and then display the error. 
 
+## I.  Add at least two unit tests for the maximum and minimum fields to the PartTest class in the test package.
+### Changes made to `PartTest.java`:
+- **Line 160-167**: Added a method to check if the inserted max value matches to the outputted max value
+- **Line 170-176**: Added a method to check if the inserted min value matches the outputted min value
 
-
+## J.  Remove the class files for any unused validators in order to clean your code.
+### Deleted `DeletePartValidator.java`

@@ -82,7 +82,8 @@ The user interface for your customer’s application should include the followin
 - **Line 11**: added a block of code to show our specific error that was created in task G when inv is < min or > max
 ### Please note 
 - **Display error messages for low inventory when adding and updating products lowers the part inventory below the minimum.**
-- None of our products updates our inventory for specific parts. Therefor we do not need to implement this. However if we did it would look something like this :
+- None of our products updates our inventory for specific parts. Therefor we do not need to implement this. See also Part F. " It should not affect the inventory of any of the associated parts."
+- However if we did implement this it would look something like this :
 ```java
 public boolean buyProduct(Long productId) {
     int intId = productId.intValue();
@@ -108,3 +109,12 @@ public boolean buyProduct(Long productId) {
 
 ## J.  Remove the class files for any unused validators in order to clean your code.
 ### Deleted `DeletePartValidator.java`
+
+
+## Other changes
+### Changes made to `InhousePartForm.html`
+- **Line 16, 18, 21, 24, 26, 28**: Added labels above the form field to indicate what value is being changed or added. 
+### Changes made to `OutsourcedPartForm.html`
+- **Line 16, 18, 21, 24, 26, 28**: Added labels above the form field to indicate what value is being changed or added. 
+### Changes made to `productForm.html`
+- **Line 16, 18, 21**: Added labels above the form field to indicate what value is being changed or added.

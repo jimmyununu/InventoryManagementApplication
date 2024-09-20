@@ -181,11 +181,7 @@ public class AddProductController {
     @GetMapping("/buyProduct")
     public String buyProduct(@RequestParam("productID") Long productID) {
         boolean success = productServiceImpl.buyProduct(productID);
-
-        // Append the success or failure message as a query parameter
         String message = success ? "Purchase successful!" : "Purchase failed: Product is out of stock.";
-
-        // Redirect with message in query parameters
         return "redirect:/mainscreen?message=" + message;
     }
 

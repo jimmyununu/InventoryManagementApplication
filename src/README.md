@@ -29,3 +29,15 @@ The user interface for your customer’s application should include the followin
 - **Line 43-67**:Added outsourced parts (3) to outsourcedPartRepository and set parameters
 - **Line 70-85**:Added inhouse parts (2) to inhousePartRepository and set parameters
 - **Line 88-100**:Added products (5) to productRepository and set parameters
+
+## F.  Add a “Buy Now” button to your product list. Your “Buy Now” button must meet each of the following parameters:
+- The “Buy Now” button must be next to the buttons that update and delete products.
+- The button should decrement the inventory of that product by one. It should not affect the inventory of any of the associated parts.
+- Display a message that indicates the success or failure of a purchase.
+### Changes made to `mainscreen.html`:
+- **Line 138** added "Buy now" button next to update and delete products
+- **Line 71 - 73** added Success/ or Failure message dependent on stock 
+### Changes made to `ProductServiceImpl`:
+- **Line 72-81** added a buyProduct method to check if the product is available
+### Changes made to `AddProductController`:
+- **Line 181-190** added buyProduct mapping and success/failure messaging logic

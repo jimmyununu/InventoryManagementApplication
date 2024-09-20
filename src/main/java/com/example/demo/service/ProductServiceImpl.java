@@ -66,4 +66,17 @@ public class ProductServiceImpl implements ProductService{
         }
         return (List<Product>) productRepository.findAll();
     }
+
+
+
+    public boolean buyProduct(Long id) {
+        int intId = id.intValue();
+        Product product = findById(intId);
+        if (product != null && product.getInv() > 0) {
+            product.setInv(product.getInv() - 1);
+            save(product);
+            return true;
+        }
+        return false;
+    }
 }

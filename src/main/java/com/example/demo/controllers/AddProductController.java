@@ -2,6 +2,7 @@ package com.example.demo.controllers;
 
 import com.example.demo.domain.Part;
 import com.example.demo.domain.Product;
+import com.example.demo.repositories.ProductRepository;
 import com.example.demo.service.PartService;
 import com.example.demo.service.PartServiceImpl;
 import com.example.demo.service.ProductService;
@@ -31,6 +32,8 @@ public class AddProductController {
     private List<Part> theParts;
     private static Product product1;
     private Product product;
+    @Autowired
+    private ProductServiceImpl productServiceImpl;
 
     @GetMapping("/showFormAddProduct")
     public String showFormAddPart(Model theModel) {
@@ -173,4 +176,18 @@ public class AddProductController {
         theModel.addAttribute("availparts",availParts);
         return "productForm";
     }
+    // Use ProductService interface
+
+    @GetMapping("/buyProduct")
+    public String buyProduct(@RequestParam("productID") Long productID) {
+        boolean success = productServiceImpl.buyProduct(productID);
+
+        // Append the success or failure message as a query parameter
+        String message = success ? "Purchase successful!" : "Purchase failed: Product is out of stock.";
+
+        // Redirect with message in query parameters
+        return "redirect:/mainscreen?message=" + message;
+    }
+
+
 }

@@ -68,5 +68,38 @@ The user interface for your customer’s application should include the followin
 ### Changes made to `application.properties`:
 - **Line 6**: Renamed the file the persistent storage is saved to ensure our new fields are updated
 
+## H.  Add validation for between or at the maximum and minimum fields. The validation must include the following:
+- Display error messages for low inventory when adding and updating parts if the inventory is less than the minimum number of parts.
+- Display error messages for low inventory when adding and updating products lowers the part inventory below the minimum.
+- Display error messages when adding and updating parts if the inventory is greater than the maximum.
+
+### Changes made to `AddOutsourcedPartController.java`:
+- **Line 48**: Fixed an error outsource part was returning inhouse part form
+
+### Changes made to `InhousePartForm.html`:
+- **Line 11**: added a block of code to show our specific error that was created in task G when inv is < min or > max
+### Changes made to `OutsourcedPartForm.html`:
+- **Line 11**: added a block of code to show our specific error that was created in task G when inv is < min or > max
+### Please note 
+- **Display error messages for low inventory when adding and updating products lowers the part inventory below the minimum.**
+- None of our products updates our inventory for specific parts. Therefor we do not need to implement this. However if we did it would look something like this :
+```java
+public boolean buyProduct(Long productId) {
+    int intId = productId.intValue();
+    Product product = findById(intId);
+    if (product != null && product.getInv() > 0) {
+        product.setInv(product.getInv() - 1);
+        Set<Part> parts = product.getParts();
+        for (Part part : parts) {
+            if (part.getInv() <= part.getMinInv()) {
+                System.out.println("Error: Part inventory cannot go below minimum for part: " + part.getName());
+                return false;  
+            } else {
+                part.setInv(part.getInv() - 1);
+            }
+        }
+```
+- We are essentially checking if the product exists and has available inventory, decreasing the inventory if it does, then checking for the associated part and decreasing part inventory if available. If either the part or product is unavailable we do not save and then display the error. 
+
 
 

@@ -8,6 +8,7 @@
 </head>
 <body>
 <h1>Inhouse Part Detail</h1>
+<p th:if="${error}" th:text="${error}" style="color: red;"></p>
 <form action="#" th:action="@{/showFormAddInPart}" th:object="${inhousepart}" method="POST"}>
 
 <!-- Add hidden form field to handle update -->
